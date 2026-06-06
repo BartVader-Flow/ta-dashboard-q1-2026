@@ -834,6 +834,37 @@ function getTeamSize(project, dateStr) {
   return size;
 }
 
+// Team Size Summary columns: 1st of each month in chart range + latest data day if not month-start.
+function buildTeamTableSnapshots() {
+  const { min, max } = chartDateExtent;
+  const snaps = [];
+  const labels = [];
+  const start = new Date(min + 'T00:00:00');
+  const end = new Date(max + 'T00:00:00');
+  let y = start.getFullYear();
+  let m = start.getMonth();
+  const endY = end.getFullYear();
+  const endM = end.getMonth();
+  const monthHdr = (dateStr) => {
+    const d = new Date(dateStr + 'T00:00:00');
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return `${months[d.getMonth()]} ${d.getDate()}`;
+  };
+  while (y < endY || (y === endY && m <= endM)) {
+    const dateStr = `${y}-${String(m + 1).padStart(2, '0')}-01`;
+    snaps.push(dateStr);
+    labels.push(monthHdr(dateStr));
+    m += 1;
+    if (m > 11) { m = 0; y += 1; }
+  }
+  const lastSnap = snaps[snaps.length - 1];
+  if (max && max !== lastSnap) {
+    snaps.push(max);
+    labels.push(monthHdr(max));
+  }
+  return { snaps, labels };
+}
+
 function buildPartPerQaData(project) {
   const series = rawPassedPartData[project];
   if (!series || !series.dates.length) return [];
@@ -1494,13 +1525,13 @@ function buildEffTable() {
 }
 
 function buildTeamTable() {
+  const { snaps, labels } = buildTeamTableSnapshots();
   const t = document.getElementById('teamTable');
-  t.innerHTML = `<tr><th></th><th>Project</th><th>Full Name</th><th>Jan 1</th><th>Feb 1</th><th>Mar 1</th><th>Apr 16</th><th>Change</th></tr>`;
-  const snaps = ['2026-01-01','2026-02-01','2026-03-01','2026-04-16'];
+  t.innerHTML = `<tr><th></th><th>Project</th><th>Full Name</th>${labels.map(l => `<th>${l}</th>`).join('')}<th>Change</th></tr>`;
   projects.forEach(p => {
     const col    = palette[p].hex;
     const vals   = snaps.map(d => getTeamSize(p, d));
-    const diff   = vals[3] - vals[0];
+    const diff   = vals[vals.length - 1] - vals[0];
     const cls    = diff > 0 ? 'join' : diff < 0 ? 'leave' : 'neutral';
     const sgn    = diff > 0 ? '+' : '';
     t.innerHTML += `<tr>
