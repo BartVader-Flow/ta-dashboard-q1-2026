@@ -699,10 +699,10 @@ const rawPassedPartData = {
 const teamChanges = {
   'PTM':             [['2026-01-01',4.0],['2026-01-31',2.0],['2026-03-30',3.0],['2026-04-06',4.0]],
   'RSB':             [['2026-01-01',0.5],['2026-01-05',1.0]],
-  'RTMS':            [['2026-01-01',6.0],['2026-02-07',5.0],['2026-03-16',6.0],['2026-03-17',5.0],['2026-03-30',6.0]],
+  'RTMS':            [['2026-01-01',6.0],['2026-02-07',5.0],['2026-03-16',6.0],['2026-03-17',5.0],['2026-03-30',6.0],['2026-07-16',5.0]],
   'RFMS':            [['2026-01-01',0.5],['2026-01-05',1.0]],
   'Aurizon':         [['2026-01-01',1.0],['2026-01-21',1.5]],
-  'TMS':             [['2026-01-01',3.5],['2026-01-31',5.5],['2026-02-16',4.5],['2026-02-23',5.5],['2026-02-26',4.5],['2026-03-02',5.5],['2026-03-09',7.5]],
+  'TMS':             [['2026-01-01',3.5],['2026-01-31',5.5],['2026-02-16',4.5],['2026-02-23',5.5],['2026-02-26',4.5],['2026-03-02',5.5],['2026-03-09',7.5],['2026-05-25',6.5]],
   'Customer Portal': [['2026-01-01',1.5],['2026-02-27',1.0],['2026-03-30',2.0]],
   'AOE':             [['2026-01-01',1.0]]
 };
@@ -746,6 +746,10 @@ const teamEvents = [
   { date:'2026-04-06', project:'PTM',             person:'Michael Ryan Liwanag',     type:'join',         delta:+1.0, note:'Supports PTM team' },
   { date:'2026-03-30', project:'RTMS',            person:'Judelyn Cabalhao',         type:'join',         delta:+1.0, note:'' },
   { date:'2026-03-30', project:'Customer Portal', person:'Krystien Dale O. Partoza', type:'join',         delta:+1.0, note:'' },
+  // May 25 – TMS departure
+  { date:'2026-05-25', project:'TMS',             person:'Ozan Sacmaz',              type:'leave',        delta:-1.0, note:'Left company' },
+  // Jul 16 – RTMS departure (planned)
+  { date:'2026-07-16', project:'RTMS',            person:'Ismail Sezer Bullalioglu', type:'leave',        delta:-1.0, note:'Leaving company — last day 16 Jul 2026' },
 ];
 
 // TA_DASH_AUTOGEN:summary-start
@@ -1037,8 +1041,7 @@ const sprints = [
   { date: '2026-04-06', label: 'Rel_2026_Q2_100',    color: 'rgba(77,136,58,0.7)'   },
   { date: '2026-04-27', label: 'Rel_2026_Q2_200',    color: 'rgba(77,136,58,0.7)'   },
   { date: '2026-05-18', label: 'Rel_2026_Q2_300',    color: 'rgba(77,136,58,0.7)'   },
-  { date: '2026-06-08', label: 'Rel_2026_Q2_400',    color: 'rgba(77,136,58,0.7)'   },
-  { date: '2026-06-29', label: 'Rel_2026_Q3_100',    color: 'rgba(77,136,58,0.7)'   }
+  { date: '2026-06-08', label: 'Rel_2026_Q2_400',    color: 'rgba(77,136,58,0.7)'   }
 ];
 // TA_DASH_AUTOGEN:sprints-end
 
