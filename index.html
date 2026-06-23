@@ -697,9 +697,9 @@ const rawPassedPartData = {
 
 // Team size timeline: [date_string, size]
 const teamChanges = {
-  'PTM':             [['2026-01-01',4.0],['2026-01-31',2.0],['2026-03-30',3.0],['2026-04-06',4.0]],
+  'PTM':             [['2026-01-01',4.0],['2026-01-31',2.0],['2026-03-30',3.0],['2026-04-06',4.0],['2026-06-08',3.0]],
   'RSB':             [['2026-01-01',0.5],['2026-01-05',1.0]],
-  'RTMS':            [['2026-01-01',6.0],['2026-02-07',5.0],['2026-03-16',6.0],['2026-03-17',5.0],['2026-03-30',6.0],['2026-07-16',5.0]],
+  'RTMS':            [['2026-01-01',6.0],['2026-02-07',5.0],['2026-03-16',6.0],['2026-03-17',5.0],['2026-03-30',6.0],['2026-06-08',7.0],['2026-06-16',6.0],['2026-06-22',5.0]],
   'RFMS':            [['2026-01-01',0.5],['2026-01-05',1.0]],
   'Aurizon':         [['2026-01-01',1.0],['2026-01-21',1.5]],
   'TMS':             [['2026-01-01',3.5],['2026-01-31',5.5],['2026-02-16',4.5],['2026-02-23',5.5],['2026-02-26',4.5],['2026-03-02',5.5],['2026-03-09',7.5],['2026-05-25',6.5]],
@@ -747,9 +747,14 @@ const teamEvents = [
   { date:'2026-03-30', project:'RTMS',            person:'Judelyn Cabalhao',         type:'join',         delta:+1.0, note:'' },
   { date:'2026-03-30', project:'Customer Portal', person:'Krystien Dale O. Partoza', type:'join',         delta:+1.0, note:'' },
   // May 25 – TMS departure
-  { date:'2026-05-25', project:'TMS',             person:'Ozan Sacmaz',              type:'leave',        delta:-1.0, note:'Left company' },
-  // Jul 16 – RTMS departure (planned)
-  { date:'2026-07-16', project:'RTMS',            person:'Ismail Sezer Bullalioglu', type:'leave',        delta:-1.0, note:'Leaving company — last day 16 Jul 2026' },
+  { date:'2026-05-25', project:'TMS',             person:'Ozan Sacmaz',              type:'leave',        delta:-1.0, note:'Resignation' },
+  // Jun 8 – Internal transfer Marketplace (PTM) → RTMS
+  { date:'2026-06-08', project:'PTM',             person:'Michael Ryan Liwanag',     type:'transfer-out', delta:-1.0, transferId:'T3', note:'Transfer to RTMS' },
+  { date:'2026-06-08', project:'RTMS',            person:'Michael Ryan Liwanag',     type:'transfer-in',  delta:+1.0, transferId:'T3', note:'Transfer from Marketplace (PTM)' },
+  // Jun 16 – RTMS departure
+  { date:'2026-06-16', project:'RTMS',            person:'Ismail Sezer Bullalioglu', type:'leave',        delta:-1.0, note:'Left company' },
+  // Jun 22 – RTMS departure
+  { date:'2026-06-22', project:'RTMS',            person:'Alptug Topanhan',          type:'leave',        delta:-1.0, note:'Resignation' },
 ];
 
 // TA_DASH_AUTOGEN:summary-start
