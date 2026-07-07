@@ -704,7 +704,7 @@ const teamChanges = {
   'Aurizon':         [['2026-01-01',1.0],['2026-01-21',1.5]],
   'TMS':             [['2026-01-01',3.5],['2026-01-31',5.5],['2026-02-16',4.5],['2026-02-23',5.5],['2026-02-26',4.5],['2026-03-02',5.5],['2026-03-09',7.5],['2026-05-25',6.5]],
   'Customer Portal': [['2026-01-01',1.5],['2026-02-27',1.0],['2026-03-30',2.0]],
-  'AOE':             [['2026-01-01',1.0]]
+  'AOE':             [['2026-01-01',1.0],['2026-06-25',0.0]]
 };
 
 // Named team events
@@ -757,7 +757,7 @@ const teamEvents = [
   { date:'2026-06-22', project:'RTMS',            person:'Alptug Topalhan',          type:'leave',        delta:-1.0, note:'Resignation' },
   // Jun 25 – Departures (left company)
   { date:'2026-06-25', project:'RFMS',            person:'Buse Yazgan',              type:'leave',        delta:-1.0, note:'Left company' },
-  { date:'2026-06-25', project:'AID',             person:'Merve Özcam',              type:'leave',        delta:-1.0, note:'Left company — AID has no QA coverage anymore' },
+  { date:'2026-06-25', project:'AOE',             person:'Merve Özcam',              type:'leave',        delta:-1.0, note:'Left company — AOE has no QA coverage anymore' },
   // Jun 25 – Coverage redistribution after Buse left RFMS
   { date:'2026-06-25', project:'RFMS',            person:'Raemar Anthony Karagdag',  type:'join',         delta:+0.5, note:'Responsibility split again: Raemar now 50% RSB / 50% RFMS (covers RFMS after Buse left).' },
 ];
@@ -786,8 +786,7 @@ const projectMeta = {
   'Aurizon':         { icon: '🏢', fullName: 'Aurizon (External)' },
   'TMS':             { icon: '📦', fullName: 'Transport Mgmt System' },
   'Customer Portal': { icon: '🌐', fullName: 'Customer Portal' },
-  'AOE':             { icon: '⚡', fullName: 'Automatic Order Entry' },
-  'AID':             { icon: '🆔', fullName: 'AID' }
+  'AOE':             { icon: '⚡', fullName: 'Automatic Order Entry' }
 };
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -801,8 +800,7 @@ const palette = {
   'Aurizon':         {hex:'#facc15',rgb:'250,204,21'},
   'TMS':             {hex:'#38bdf8',rgb:'56,189,248'},
   'Customer Portal': {hex:'#a78bfa',rgb:'167,139,250'},
-  'AOE':             {hex:'#5ea347',rgb:'94,163,71'},
-  'AID':             {hex:'#94a3b8',rgb:'148,163,184'}
+  'AOE':             {hex:'#5ea347',rgb:'94,163,71'}
 };
 
 const projects  = Object.keys(rawData);
